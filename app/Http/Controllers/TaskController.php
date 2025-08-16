@@ -26,7 +26,7 @@ class TaskController extends Controller
         return redirect()->back()->with('success', 'Task added!');
     }
 
-    public function update(Task $task)
+    public function updateStatus(Task $task)
     {
         $task->update(['completed' => !$task->completed]);
         return redirect()->back();

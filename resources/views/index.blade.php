@@ -36,7 +36,7 @@
     <ul class="list-group shadow-sm">
         @forelse($tasks as $task)
             <li class="list-group-item d-flex justify-content-between align-items-center task-item {{ $task->completed ? 'completed' : '' }}">
-                <form action="{{ route('tasks.update', $task) }}" method="POST">
+                <form action="{{ route('tasks.updateStatus', $task) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <button class="btn btn-sm {{ $task->completed ? 'btn-success' : 'btn-outline-success' }}">
@@ -108,7 +108,7 @@
             var form = document.getElementById('editForm');
 
             modalTitleInput.value = title;
-            form.action = '/todo-app/public/tasks/' + id;
+            form.action = '/tasks/' + id + '/title';
         });
     });
   const today = new Date();
