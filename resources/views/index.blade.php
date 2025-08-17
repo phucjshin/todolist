@@ -10,9 +10,14 @@
         .task-item:hover { background: #f1f1f1; }
         .completed { background-color: greenyellow; }
         .container { max-width: 700px; }
+        .task-pending::after {
+            content: " |PENDING";
+            color: orange;
+            font-weight: bold;
+        }
         .task-pending {
             background-color: #f0f0f0;
-            text-decoration: line-through;
+            font-weight: normal;
         }
     </style>
 </head>
@@ -44,9 +49,9 @@
                     </button>
                 </form>
 
-                <span class="flex-fill mx-3 {{ $task->status == 'pending' ? 'task-pending' : '' }}">
+                <strong class="flex-fill mx-3 {{ $task->status == 'pending' ? 'task-pending' : '' }}">
                     {{ $task->title }}
-                </span>
+                </strong>
 
                 <div class="btn-group">
                     <button class="btn btn-icon btn-edit" data-bs-toggle="modal" data-bs-target="#editModal" 
