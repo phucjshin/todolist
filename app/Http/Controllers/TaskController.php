@@ -10,7 +10,8 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderByRaw("status = 'pending' ASC") // pending xếp cuối
-             ->orderBy('created_at', 'desc')       // sắp xếp theo ngày tạo
+             ->orderBy('title', 'asc')
+             ->orderBy('created_at', 'desc')
              ->get();
 
         return view('index', compact('tasks'));
@@ -28,7 +29,7 @@ class TaskController extends Controller
 
     public function updateStatus(Task $task)
     {
-        $task->update(['completed' => !$task->completed]);
+        $task->update(['completed' => !$task->completed, 'status' => 'active']);
         return redirect()->back();
     }
 

@@ -56,7 +56,7 @@
                 <div class="btn-group">
                     <button class="btn btn-icon btn-edit" data-bs-toggle="modal" data-bs-target="#editModal" 
                         data-id="{{ $task->id }}" data-title="{{ $task->title }}">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <i class="fas fa-pencil"></i>
                     </button>
                     <form action="{{ route('tasks.pending', $task->id) }}" method="POST" style="display:inline-block;">
                         @csrf
@@ -113,7 +113,7 @@
             var form = document.getElementById('editForm');
 
             modalTitleInput.value = title;
-            form.action = '/tasks/' + id + '/title';
+            form.action = '/todo-app/public/tasks/' + id + '/title';
         });
     });
   const today = new Date();
